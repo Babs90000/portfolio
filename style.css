@@ -1,0 +1,38 @@
+
+h1 {
+    text-align: center;
+}
+
+
+.admin-container {
+    padding-top: 50px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.admin-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.admin-list {
+    list-style-type: none;
+    padding: 0;
+}
+.admin-list li {
+    margin-bottom: 10px;
+}
+.admin-list a {
+    display: block;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.admin-list a:hover {
+    background-color: #0056b3;
+}
+
+#contact {
+    margin-bottom: 20px;
+}
