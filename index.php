@@ -40,9 +40,9 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" id="projects">
         <h1 class="my-4">Mes réalisations</h1>
-        <div class="row" id="projects">
+        <div class="row" >
             <?php
             require 'database.php';
             $sql = "SELECT titre, description, url, image_blob FROM projects";
