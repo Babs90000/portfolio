@@ -23,9 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $phpmailer->Port = 587;
 
-        // Activer le débogage SMTP
-        $phpmailer->SMTPDebug = 2; // 0 = off (pour la production), 1 = messages client, 2 = messages client et serveur
-        $phpmailer->Debugoutput = 'html'; // Afficher les messages de débogage en HTML
 
         // Configurer l'encodage
         $phpmailer->CharSet = 'UTF-8';
@@ -55,13 +52,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $phpmailer->send();
 
         echo "Vous allez être redirigé à la page précédente dans 5 secondes...";
-    header("refresh:5;url=" . $_SERVER['HTTP_REFERER']);
-    exit();
+        header("refresh:5;url=" . $_SERVER['HTTP_REFERER']);
         exit();
+      
     } catch (Exception $e) {
         echo "Votre message n'a pas été envoyé: {$phpmailer->ErrorInfo}</br>";
         echo "La page va se rafraîchir dans 5 secondes...";
-        header("refresh:5");
+        header("refresh:5;url=" . $_SERVER['HTTP_REFERER']);
         exit();
     }
 }
