@@ -60,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     } catch (Exception $e) {
         echo "Votre message n'a pas été envoyé: {$phpmailer->ErrorInfo}</br>";
-        echo "Vous allez être redirigé à la page précédente dans 5 secondes...";
-        header("refresh:5;url=" . $_SERVER['HTTP_REFERER']);
+        echo "La page va se rafraîchir dans 5 secondes...";
+        header("refresh:5");
         exit();
     }
 }
