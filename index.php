@@ -54,12 +54,12 @@
                 echo '<div class="col-lg-4 col-sm-6 mb-4">';
                 echo '<div class="card h-100">';
                 if ($row['image_blob']) {
-                    echo '<img src="data:image/jpeg;base64,' . base64_encode($row['image_blob']) . '" alt="' . htmlspecialchars($row['titre'], ENT_QUOTES, 'UTF-8') . '" class="card-img-top" style="height: 200px; object-fit: cover;">';
+                    echo '<img src="data:image/jpeg;base64,' . base64_encode($row['image_blob']) . '" alt="' . htmlspecialchars_decode($row['titre'], ENT_QUOTES, 'UTF-8') . '" class="card-img-top" style="height: 200px; object-fit: cover;">';
                 }
                 echo '<div class="card-body">';
-                echo '<h4 class="card-title">' . htmlspecialchars($row['titre'], ENT_QUOTES, 'UTF-8') . '</h4>';
-                echo '<p class="card-text">' . htmlspecialchars($row['description'], ENT_QUOTES, 'UTF-8') . '</p>';
-                echo '<a href="' . htmlspecialchars($row['url'], ENT_QUOTES, 'UTF-8') . '" class="btn btn-primary">Voir le site</a>';
+                echo '<h4 class="card-title">' . htmlspecialchars_decode($row['titre'], ENT_QUOTES, 'UTF-8') . '</h4>';
+                echo '<p class="card-text">' . htmlspecialchars_decode($row['description'], ENT_QUOTES, 'UTF-8') . '</p>';
+                echo '<a href="' . htmlspecialchars_decode($row['url'], ENT_QUOTES, 'UTF-8') . '" class="btn btn-primary">Voir le site</a>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
