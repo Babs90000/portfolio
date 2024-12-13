@@ -47,11 +47,11 @@ if (!isset($_SESSION['user_id'])) {
         <?php
        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $titre = htmlspecialchars($_POST['titre'], ENT_QUOTES, 'UTF-8');
-            $description = htmlspecialchars($_POST['description'], ENT_QUOTES, 'UTF-8');
-            $url = htmlspecialchars($_POST['url'], ENT_QUOTES, 'UTF-8');
+            $titre = $_POST['titre'];
+            $description = $_POST['description'];
+            $url = $_POST['url'];
             $image = $_FILES['image'];
-            $date = htmlspecialchars($_POST['date'], ENT_QUOTES, 'UTF-8');
+            $date = $_POST['date'];
 
             // Lire le contenu du fichier image
             $image_blob = file_get_contents($image['tmp_name']);

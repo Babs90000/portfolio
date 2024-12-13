@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_id'])) {
         $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $project_id = isset($_POST['project_id']) ? htmlspecialchars($_POST['project_id'], ENT_QUOTES, 'UTF-8') : '';
+            $project_id = isset($_POST['project_id']) ? $_POST['project_id']: '';
 
             if ($project_id) {
                 $sql = "DELETE FROM projects WHERE id = :project_id";
@@ -52,8 +52,8 @@ if (!isset($_SESSION['user_id'])) {
                 <select id="project_id" name="project_id" class="form-control" required>
                     <option value="">-- Sélectionner un projet --</option>
                     <?php foreach ($projects as $project): ?>
-                        <option value="<?php echo htmlspecialchars($project['id'], ENT_QUOTES, 'UTF-8'); ?>">
-                            <?php echo htmlspecialchars($project['titre'], ENT_QUOTES, 'UTF-8'); ?>
+                        <option value="<?php echo $project['id']; ?>">
+                            <?php echo $project['titre']; ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
@@ -68,11 +68,11 @@ if (!isset($_SESSION['user_id'])) {
             $stmt = $bdd->query($sql);
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo '<li class="list-group-item">';
-                echo '<h3>' . htmlspecialchars($row['titre'], ENT_QUOTES, 'UTF-8') . '</h3>';
-                echo '<p>' . htmlspecialchars($row['description'], ENT_QUOTES, 'UTF-8') . '</p>';
-                echo '<a href="' . htmlspecialchars($row['url'], ENT_QUOTES, 'UTF-8') . '">Voir le site</a><br>';
+                echo '<h3>' . $row['titre']. '</h3>';
+                echo '<p>' . $row['description']. '</p>';
+                echo '<a href="' . $row['url']. '">Voir le site</a><br>';
                 if ($row['image_blob']) {
-                    echo '<img src="data:image/jpeg;base64,' . base64_encode($row['image_blob']) . '" alt="' . htmlspecialchars($row['titre'], ENT_QUOTES, 'UTF-8') . '" width="200" height="150"><br>';
+                    echo '<img src="data:image/jpeg;base64,' . base64_encode($row['image_blob']) . '" alt="' . $row['titre']. '" width="200" height="150"><br>';
                 }
                 echo '</li>';
             }
